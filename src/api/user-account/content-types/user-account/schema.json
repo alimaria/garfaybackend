@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_accounts",
+  "info": {
+    "singularName": "user-account",
+    "pluralName": "user-accounts",
+    "displayName": "User_Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "Password": {
+      "type": "password",
+      "required": true,
+      "minLength": 8,
+      "private": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Phone_Number": {
+      "type": "string",
+      "required": true,
+      "private": true,
+      "unique": false
+    },
+    "Admin_Access": {
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "crypto_info": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::crypto-info.crypto-info",
+      "mappedBy": "user_account"
+    },
+    "duo_authenticate": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::duo-authenticate.duo-authenticate",
+      "inversedBy": "user_account"
+    },
+    "training_completed": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::training-completed.training-completed",
+      "inversedBy": "user_account"
+    }
+  }
+}

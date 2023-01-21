@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crypto_infos",
+  "info": {
+    "singularName": "crypto-info",
+    "pluralName": "crypto-infos",
+    "displayName": "Crypto_Info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Account_Num": {
+      "type": "string",
+      "unique": true
+    },
+    "Password": {
+      "type": "password",
+      "minLength": 8,
+      "private": true,
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "user_account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-account.user-account",
+      "inversedBy": "crypto_info"
+    }
+  }
+}

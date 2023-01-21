@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "training_completeds",
+  "info": {
+    "singularName": "training-completed",
+    "pluralName": "training-completeds",
+    "displayName": "Training_Completed",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Email": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "Completed_Training": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "user_account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-account.user-account",
+      "mappedBy": "training_completed"
+    }
+  }
+}

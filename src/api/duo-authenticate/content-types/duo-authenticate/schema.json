@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "duo_authenticates",
+  "info": {
+    "singularName": "duo-authenticate",
+    "pluralName": "duo-authenticates",
+    "displayName": "Duo_Authenticate ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "Password": {
+      "type": "password",
+      "required": true,
+      "minLength": 8,
+      "private": true
+    },
+    "Phone_Number": {
+      "type": "string",
+      "unique": false,
+      "required": true,
+      "private": true
+    },
+    "user_account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-account.user-account",
+      "mappedBy": "duo_authenticate"
+    }
+  }
+}
